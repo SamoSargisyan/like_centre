@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'updating' | trans }}</h1>
+        {{ include('user/_form_html.twig') }}
+    </div>
+{% endblock %}

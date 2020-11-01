@@ -3,3 +3,10 @@ update: Изменить
 updating: Изменяем параметры
 create: Создаем пользователя
 
+new_user: Новый пользователь
+user.full.name: Полное имя пользователя
+user.role: Должность
+user.date.of.birth: Дата рождения
+user.passport: Паспортные данные
+user.mobile.number: Номер телефона
+user.email: Email

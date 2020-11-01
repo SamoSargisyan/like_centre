@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>{{ 'auto.title' | trans }}</h1>
+        <table class="table table-condensed table-striped">
+            <thead>
+            <tr>
+                <th>{{ 'user.full.name' | trans }}</th>
+                <th>{{ 'user.role' | trans }}</th>
+                <th>{{ 'user.date.of.birth' | trans }}</th>
+                <th>{{ 'user.passport' | trans }}</th>
+                <th>{{ 'user.mobile.number' | trans }}</th>
+                <th>{{ 'user.email' | trans }}</th>
+            </tr>
+            </thead>
+
+            {% for person in user %}
+                <tr>
+                    <td><a href="{{ path('show_auto', {'id': user.id}) }}">{{ user.getFullName }}</a></td>
+                    <td>{{ user.getRole }}</td>
+                    <td>{{ user.getDateOfBirth() | date('d.m.Y') }}</td>
+                    <td>{{ user.getPassport }}</td>
+                    <td>{{ user.getMobileNumber }}</td>
+                    <td>{{ user.getEmail }}</td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+{% endblock %}

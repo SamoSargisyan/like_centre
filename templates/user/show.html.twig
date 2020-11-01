@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'new_user' | trans }}</h1>
+
+        <p>{{ 'user.full.name' | trans }}: <strong>{{ user.fullName }}</strong></p>
+
+        <p>{{ 'user.role' | trans }}: <strong>{{ user.role }}</strong></p>
+        <p>{{ 'user.date.of.birth' | trans }}: <strong>{{ user.dateOfBirth() | date('d.m.Y') }}</strong></p>
+
+        <p>{{ 'user.passport' | trans }}: <strong>{{ user.passport }}</strong></p>
+
+        <p>{{ 'user.mobile.number' | trans }}: <strong>{{ user.mobileNumber }}</strong></p>
+        <p>{{ 'user.email' | trans }}: <strong>{{ user.email }}</strong></p>
+
+    </div>
+{% endblock %}
