@@ -5,10 +5,12 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
+ * @Gedmo\Loggable
  */
 class User
 {
@@ -17,35 +19,41 @@ class User
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Gedmo\Versioned
      */
     private string $fullName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Gedmo\Versioned
      */
     private string $role;
 
     /**
      * @ORM\Column(type="date")
+     * @Gedmo\Versioned
      */
     private ?\DateTimeInterface $dateOfBirth = null;
 
     /**
      * @ORM\Column (type="string", length=255)
+     * @Gedmo\Versioned
      */
     private string $passport;
 
     /**
      * @ORM\Column (type="string", length=255)
+     * @Gedmo\Versioned
      */
     private string $mobileNumber;
 
     /**
      * @ORM\Column (type="string", length=255)
+     * @Gedmo\Versioned
      */
     private string $email;
 
@@ -53,7 +61,7 @@ class User
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }

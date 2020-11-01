@@ -18,7 +18,6 @@ class UserType extends AbstractType
             ->add('role', TextType::class)
             ->add('date_of_birth', DateTimeType::class)
             ->add('passport', TextType::class)
-            ->add('passport', TextType::class)
             ->add('mobile_number', TextType::class)
             ->add('email', TextType::class);
     }

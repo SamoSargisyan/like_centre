@@ -1,32 +1,6 @@
 version: '3.7'
 
 services:
-  php-fpm:
-    build:
-      context: docker/php-fpm
-    volumes:
-      - ./:/var/www
-      - ./docker/php-fpm/php.ini:/usr/local/etc/php/php.ini
-    environment:
-      XDEBUG_CONFIG: "remote_host=host.docker.internal remote_enable=1 max_nesting_level=512 remote_autostart=0 profiler_enable_trigger=off  remote_port=9010"
-      PHP_IDE_CONFIG: "serverName=Docker"
-    networks:
-      test-network:
-        ipv4_address: 192.168.220.4
-
-  nginx:
-    build:
-      context: docker/nginx
-    volumes:
-      - ./:/var/www
-    ports:
-      - "80:80"
-    depends_on:
-      - php-fpm
-    networks:
-      test-network:
-        ipv4_address: 192.168.220.5
-
   database:
     image: postgres:11-alpine
     ports:
