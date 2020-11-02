@@ -3,7 +3,7 @@
 {% block body %}
 
     <div class="container">
-        <h1>{{ 'auto.title' | trans }}</h1>
+        <h1>{{ 'user.index.title' | trans }}</h1>
         <table class="table table-condensed table-striped">
             <thead>
             <tr>
@@ -13,22 +13,27 @@
                 <th>{{ 'user.passport' | trans }}</th>
                 <th>{{ 'user.mobile.number' | trans }}</th>
                 <th>{{ 'user.email' | trans }}</th>
+                <th>{{ 'options' | trans }}</th>
             </tr>
             </thead>
 
+            <tbody>
             {% for person in user %}
                 <tr>
-                    <td><a href="{{ path('show_auto', {'id': user.id}) }}">{{ user.getFullName }}</a></td>
-                    <td>{{ user.getRole }}</td>
-                    <td>{{ user.getDateOfBirth() | date('d.m.Y') }}</td>
-                    <td>{{ user.getPassport }}</td>
-                    <td>{{ user.getMobileNumber }}</td>
-                    <td>{{ user.getEmail }}</td>
+                    <td><a href="{{ path('show_user', {'id': person.id}) }}">{{ person.getFullName }}</a></td>
+                    <td>{{ person.getRole }}</td>
+                    <td>{{ person.getDateOfBirth() | date('d.m.Y') }}</td>
+                    <td>{{ person.getPassport }}</td>
+                    <td>{{ person.getMobileNumber }}</td>
+                    <td>{{ person.getEmail }}</td>
+
+                    <td><a href="{{ path('delete_user', {'id': person.id}) }}">{{ 'delete.user' | trans }}</a></td>
 
                 </tr>
             {% endfor %}
             </tbody>
 
         </table>
+        <td><a href="{{ path('create_user')}}">{{ 'create.user' | trans }}</a></td>
     </div>
 {% endblock %}

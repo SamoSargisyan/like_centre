@@ -21,6 +21,16 @@ class UserController extends AbstractController
     }
 
     /**
+     * @Route("/user/{page<\d+>?1}", name="index_user", methods = {"GET"})
+     * @return Response
+     */
+    public function index (): Response
+    {
+        $user = $this->userManager->getRepository()->findAll();
+        return $this->render('user/index.html.twig', compact('user'));
+    }
+
+    /**
      * @Route("/user/update/{id<\d+>}", name="update_user")
      *
      * @param $id
@@ -45,6 +55,21 @@ class UserController extends AbstractController
         return $this->render('user/update.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/user/delete/{id<\d+>}", name="delete_user")
+     *
+     * @param $id
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function delete($id): Response
+    {
+        $user = $this->userManager->get($id);
+        $this->userManager->delete($user);
+        return $this->redirectToRoute('index_user');
     }
 
     /**

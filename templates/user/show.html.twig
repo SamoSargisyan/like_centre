@@ -14,5 +14,12 @@
         <p>{{ 'user.mobile.number' | trans }}: <strong>{{ user.mobileNumber }}</strong></p>
         <p>{{ 'user.email' | trans }}: <strong>{{ user.email }}</strong></p>
 
+
+        <div class="card-footer">
+            <a class="btn btn-dark" href="{{ path('update_user', {'id': user.id}) }}">{{ 'update' | trans }}</a>
+        </div>
+
+        <p class="text-left"><a href="{{ path('index_user') }}">{{ 'Вернуться к списку' | trans }}</a></p>
+
     </div>
 {% endblock %}

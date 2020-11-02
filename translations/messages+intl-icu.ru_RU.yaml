@@ -10,3 +10,8 @@ user.date.of.birth: Дата рождения
 user.passport: Паспортные данные
 user.mobile.number: Номер телефона
 user.email: Email
+
+user.index.title: Список сотрудников
+options: Действия
+delete.user: Удалить
+create.user: Создать
